@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kit Dark Side - Loja Geek</title>
+    <link rel="stylesheet" href="css/produtos.css">
+    <link rel="stylesheet" href="css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/icon.css">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+            <div id="divBusca">
+                <img src="img/lupa.png" id="btnBusca" alt="Buscar" width="45px" height="50px" />
+                <input type="text" id="txtBusca" placeholder="Buscar...">
+            </div>
+            <div class="header-right">
+                <a onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><img
+                        src="img/conta.png"><br>Conta
+                    <a href="carrinho.html"><img src="img/carrinho.png"><br>Carrinho</a>
+                    <a href="sac.html"><img src="img/sac.png"><br>Sac</a>
+            </div>
+        </div>
+        <div class="barra">
+            <a href="camisetas.html">Camisetas</a>
+            <a href="acessorios.html">Acessorios</a>
+            <a href="actionfigures.html">Action Figures</a>
+            <a href="livros.html">Livros</a>
+            <a href="hqs.html">HQ's</a>
+            <a href="decoracoes.html">Decorações</a>
+            <a href="kits.html">Kits</a>
+        </div>
+    </header>
+    <div id="id01" class="modal">
+
+        <form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Email:</b></label>
+                <input type="text" placeholder="Escreva seu email" name="uname" required>
+
+                <label for="psw"><b>Senha</b></label>
+                <input type="password" placeholder="Escreva sua senha" name="psw" required>
+
+                <button type="submit">Entrar</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Lembre-se de mim
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn">Cancelar</button>
+                <span class="psw">Ainda não possui conta? <a href="cadastro.html"> Registre-se</a></span>
+            </div>
+        </form>
+    </div>
+
+    <div class="card-body store-body">
+        <div class="product-info">
+            <div class="container">
+                <div class="product-gallery">
+                    <div class="product-gallery-thumbnails">
+                        <ol class="thumbnails-list list-unstyled">
+                            <li><img src="img/kits/kitds.png" alt="" width="400px"></li>
+                            <li><img src="img/kits/darkside.jpg" alt="" width="400px"></li>
+                            <li><img src="img/kits/pokyvader.jpg" alt=""></li>
+                            <li><img src="img/kits/sith.jpg" alt="" width="400px"></li>
+                        </ol>
+                    </div>
+
+                    <div class="product-gallery-featured">
+                        <img src="img/kits/kitds.png" alt="" width="400px">
+                    </div>
+                    <script>
+                        const galleryThumbnail = document.querySelectorAll(".thumbnails-list li");
+                        const galleryFeatured = document.querySelector(".product-gallery-featured img");
+                        galleryThumbnail.forEach((item) => {
+                            item.addEventListener("mouseover", function () {
+                                let image = item.children[0].src;
+                                galleryFeatured.src = image;
+                            });
+                        });
+                        $(".main-questions").popover('show');
+                    </script>
+
+                    <div class="product-payment-details">
+                        <h4 class="product-title mb-2">Kit Dark Side - Star Wars</h4>
+                        <h2 class="product-price display-4">R$90.00</h2>
+                        <div class="text-muted mb-2"><small>produto em estoque!</small>
+                        </div>
+                        <p>Quantidade: <input type="number" value="1" min="1" max="10" id="qtd41">
+                            <div class="btcart">
+                                <p><button type="button" id="adicionar1" id="produto1"
+                                        onclick="AddCarrinho('Kit - Dark Side', document.getElementById('qtd41').value, '90.00', 41)">Adicionar
+                                        ao Carrrinho</button></p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function AddCarrinho(produto, qtd, valor, posicao) {
+                    localStorage.setItem("produto" + posicao, produto);
+                    localStorage.setItem("qtd" + posicao, qtd);
+                    valor = valor * qtd;
+                    localStorage.setItem("valor" + posicao, valor);
+                    alert("Produto adicionado ao carrinho!");
+                }
+            </script>
+
+            <div class="product-seller-recommended">
+                <div class="product-description mb-5">
+                    <h2 class="mb-5">Descrição</h2>
+                    <p> Compre um kit composto por 3 peças variadas da nossa loja, você ganha mais pagando muito menos!
+                        Satisfação garantida ou seu dinheiro de volta<br>
+                        <p>
+                            Capacho: Dark Side<br>
+                            Camiseta: Poky Vader<br>
+                            Livro: Livro dos Sith
+                        </p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="page-footer font-small cyan darken-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 py-5">
+                    <div class="mb-5 flex-center">
+                        <div class="footer-social-icons">
+                            <h5>Sigam a gente nas redes sociais!</h5>
+                            <ul class="social-icons">
+                                <li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+                                <li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+                                <li><a href="" class="social-icon"> <i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="copyright">©2018 Copyright:
+                            <a href="index.html"> lojageek.com.br</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Produto - Loja Geek</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/produtos.css">
+    <link rel="stylesheet" href="css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/icon.css">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+            <div id="divBusca">
+                <img src="img/lupa.png" id="btnBusca" alt="Buscar" width="45px" height="50px" />
+                <input type="text" id="txtBusca" placeholder="Buscar...">
+            </div>
+            <div class="header-right">
+                <a onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><img
+                        src="img/conta.png"><br>Conta
+                    <a href="carrinho.html"><img src="img/carrinho.png"><br>Carrinho</a>
+                    <a href="sac.html"><img src="img/sac.png"><br>Sac</a>
+            </div>
+        </div>
+        <div class="barra">
+            <a href="camisetas.html">Camisetas</a>
+            <a href="acessorios.html">Acessorios</a>
+            <a href="actionfigures.html">Action Figures</a>
+            <a href="livros.html">Livros</a>
+            <a href="hqs.html">HQ's</a>
+            <a href="decoracoes.html">Decorações</a>
+            <a href="kits.html">Kits</a>
+        </div>
+    </header>
+
+    <div class="card-body store-body">
+        <div class="product-info">
+            <div class="container">
+                <div class="product-gallery">
+                    <div class="product-gallery-thumbnails">
+                        <ol class="thumbnails-list list-unstyled">
+                            <li><img src="img/camisetas/panteranegra.jpg" alt=""></li>
+                            <li><img src="img/camisetas/panteranegraB.jpg" alt=""></li>
+                        </ol>
+                    </div>
+
+                    <div class="product-gallery-featured">
+                        <img src="img/camisetas/panteranegra.jpg" alt="">
+                    </div>
+                    <script>
+                        const galleryThumbnail = document.querySelectorAll(".thumbnails-list li");
+                        const galleryFeatured = document.querySelector(".product-gallery-featured img");
+                        galleryThumbnail.forEach((item) => {
+                            item.addEventListener("mouseover", function () {
+                                let image = item.children[0].src;
+                                galleryFeatured.src = image;
+                            });
+                        });
+                        $(".main-questions").popover('show');
+                    </script>
+
+                    <div class="product-payment-details">
+                        <h4 class="product-title mb-2">Camiseta Pantera Negra</h4>
+                        <h2 class="product-price display-4">R$40.00</h2>
+                        <div class="text-muted mb-2"><small>produto em estoque!</small>
+                        </div>
+                        <p>Quantidade: <input type="number" value="1" min="1" max="10" id="qtd1">
+                            <div class="btcart">
+                                <p><button type="button" id="adicionar1" id="produto1"
+                                        onclick="AddCarrinho('Camiseta Pantera Negra', document.getElementById('qtd1').value, '40.00', 1)">Adicionar
+                                        ao Carrrinho</button></p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function AddCarrinho(produto, qtd, valor, posicao) {
+                    localStorage.setItem("produto" + posicao, produto);
+                    localStorage.setItem("qtd" + posicao, qtd);
+                    valor = valor * qtd;
+                    localStorage.setItem("valor" + posicao, valor);
+                    alert("Produto adicionado ao carrinho!");
+                }
+            </script>
+
+            <div class="product-seller-recommended">
+                <div class="product-description mb-5">
+                    <h2 class="mb-5">Descrição</h2>
+                    <p>Camiseta Feminina Pantera Negra - Com suas garras de vibranium o Pantera Negra esta pronto para
+                        combater o crime.<br>
+                        Todas nossas camisetas são produzidas com malha penteada 30.1 de alta qualidade 100%
+                        algodão.<br>
+                        As estampas são feitas pelo processo de serigrafia (também conhecido por silk-screen).<br> Todos
+                        os
+                        processos de silk screen são feitos manualmente por profissionais gabaritados, tudo passando por
+                        um controle de qualidade. Satisfação garantida ou seu dinheiro de volta.<br>
+                        <p>
+                            Artista: Gleydson Barbosa.<br>
+                            Camiseta: 100% algodão Fio 30.1 malha penteada.<br>
+                            Estampa: Silk-screen.
+                        </p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="page-footer font-small cyan darken-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 py-5">
+                    <div class="mb-5 flex-center">
+                        <div class="footer-social-icons">
+                            <h5>Sigam a gente nas redes sociais!</h5>
+                            <ul class="social-icons">
+                                <li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+                                <li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+                                <li><a href="" class="social-icon"> <i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="copyright">©2018 Copyright:
+                            <a href="index.html"> lojageek.com.br</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
