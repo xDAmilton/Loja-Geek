@@ -1,2 +1,2 @@
 # Loja-Geek
-###Feito por: José Amilton e Fernanda Miná
+### Feito por: José Amilton e Fernanda Miná
