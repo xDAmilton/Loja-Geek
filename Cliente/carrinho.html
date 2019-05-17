@@ -1,0 +1,208 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Carrinho - Loja Geek</title>
+  <link rel="stylesheet" href="css/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/icon.css">
+  <link rel="stylesheet" href="css/carrinho.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+      <div id="divBusca">
+        <img src="img/lupa.png" id="btnBusca" alt="Buscar" width="45px" height="50px" />
+        <input type="text" id="txtBusca" placeholder="Buscar...">
+      </div>
+      <div class="header-right">
+        <a onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><img
+            src="img/conta.png"><br>Conta
+          <a href="carrinho.html"><img src="img/carrinho.png"><br>Carrinho</a>
+          <a href="sac.html"><img src="img/sac.png"><br>Sac</a>
+      </div>
+    </div>
+    <div class="barra">
+      <a href="camisetas.html">Camisetas</a>
+      <a href="acessorios.html">Acessorios</a>
+      <a href="actionfigures.html">Action Figures</a>
+      <a href="livros.html">Livros</a>
+      <a href="hqs.html">HQ's</a>
+      <a href="decoracoes.html">Decorações</a>
+      <a href="kits.html">Kits</a>
+    </div>
+  </header>
+
+  <div id="id01" class="modal">
+
+    <form class="modal-content animate" action="/action_page.php">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+          title="Close Modal">&times;</span>
+        <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Email:</b></label>
+        <input type="text" placeholder="Escreva seu email" name="uname" required>
+
+        <label for="psw"><b>Senha</b></label>
+        <input type="password" placeholder="Escreva sua senha" name="psw" required>
+
+        <button type="submit">Entrar</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Lembre-se de mim
+        </label>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'"
+          class="cancelbtn">Cancelar</button>
+        <span class="psw">Ainda não possui conta? <a href="cadastro.html"> Registre-se</a></span>
+      </div>
+    </form>
+  </div>
+
+  <div id="cabcar">
+    <h2>Carrinho de Compras</h2>
+    <p>Aqui ficara armazenado todos os produtos que desejar.</p>
+  </div>
+  <div class="rowc">
+    <div class="col-75">
+      <div class="container" back>
+        <form action="/action_page.php">
+
+          <div class="col-25">
+            <div class="container">
+              <h4>Carrinho <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> </span>
+              </h4>
+
+              <hr>
+
+              <div id="itens"> </div>
+              <div>Total: <span id="total"></span> </div>
+              <button type="button" onclick=" localStorage.clear(); location.reload();" class="cancelbtn"> Limpar
+                carrinho </button>
+              <hr>
+              <br>
+            </div>
+          </div>
+        </form>
+          <script>
+            var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
+            var i = 0;     // variável que irá percorrer as posições
+            var valor = 0; // variável que irá receber o preço do produto convertido em Float.
+
+            for (i = 1; i <= 99; i++) // verifica até 99 produtos registrados na localStorage
+            {
+              var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
+              if (prod != null) {
+                // exibe os dados da lista dentro da div itens
+                document.getElementById("itens").innerHTML += localStorage.getItem("qtd" + i) + " x ";
+                document.getElementById("itens").innerHTML += localStorage.getItem("produto" + i);
+                document.getElementById("itens").innerHTML += " ";
+                document.getElementById("itens").innerHTML += "R$: " + localStorage.getItem("valor" + i) + "<hr>";
+
+                // calcula o total dos recheios
+                valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
+                total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
+              }
+            }
+            // exibe o total dos recheios
+            document.getElementById("total").innerHTML = total.toFixed(2); 
+          </script>
+
+
+          <div class="container">
+
+            <form class="formulario" id="car" v-on:submit.prevent="checkForm">
+              <p v-if="errors.length">
+                <b>Por favor, corrija o(s) seguinte(s) erro(s):</b>
+                <ul id="erro">
+                  <li v-for="error in errors">{{ error }}</li>
+                </ul>
+              </p>
+
+              <div class="col-50">
+                <h3>Dados do cliente:</h3>
+                <label for="nome"><i class="fa fa-user"></i> Nome Completo</label>
+                <input type="text" name="nome" placeholder="Escreva seu nome" v-model="nome">
+                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                <input type="email" name="email" placeholder="Escreva seu email" v-model="email">
+                <label for="cidade"><i class="fa fa-institution"></i> Cidade</label>
+                <input type="text" name="cidade" placeholder="Escreva sua cidade" v-model="cidade">
+
+                <div class="rowc">
+                  <div class="col-50">
+                    <label for="estado">Estado</label>
+                    <input type="text" name="estado" placeholder="CE" v-model="estado">
+                  </div>
+                  <div class="col-50">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="zip" name="cep" placeholder="0000-0000" v-model="cep">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-50">
+                <h3>Forma de pagamento:</h3>
+                <label for="fname">Aceitamos Cartões!</label>
+                <div class="icon-container">
+                  <i class="fa fa-cc-visa" style="color:navy;"></i>
+                  <i class="fa fa-cc-amex" style="color:blue;"></i>
+                  <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                  <i class="fa fa-cc-discover" style="color:orange;"></i>
+                </div>
+                <label for="ncart">Nome que está no cartão (exatamente como está):</label>
+                <input type="text" name="ncart" placeholder="NOME D CARTAO" v-model="ncart">
+                <label for="numcart">Numero do cartão:</label>
+                <input type="text" name="numcart" placeholder="1111-2222-3333-4444" v-model="numcart">
+                <div class="rowc">
+                  <div class="col-50">
+                    <label for="venci">Data de vencimento do cartão:</label>
+                    <input type="date" name="venci" placeholder="__ /__ /__" v-model="venci">
+                  </div>
+                  <div class="col-50">  
+                    <label for="codseg">Código de segurança:</label>
+                    <input type="text" name="codseg" placeholder="000" v-model="codseg">
+                  </div>
+                  <button type="submit" class="registerbtn">Enviar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer font-small cyan darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 py-5">
+          <div class="mb-5 flex-center">
+            <div class="footer-social-icons">
+              <h5>Sigam a gente nas redes sociais!</h5>
+              <ul class="social-icons">
+                <li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+                <li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+                <li><a href="" class="social-icon"> <i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+            <div class="copyright">©2018 Copyright:
+              <a href="index.html"> lojageek.com.br</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <script src="vue/vue.js"></script>
+</body>
+
+</html>

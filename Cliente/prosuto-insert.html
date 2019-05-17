@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+
+<body>
+    <div class=container>
+        <div id="app">
+            <h3>Inserir Usuário</h3>
+            <div class="form-group">
+                <label for="username">Username: </label>
+                <input class="form-control" type="text" v-model="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password: </label>
+                <input class="form-control" type="password" v-model="password">
+            </div>
+            <label class="btn btn-primary">
+                    Escolher arquivo <input type="file" id="file" ref="file" name="image" @change="handleFileUpload()" hidden>
+            </label><br>
+            <button class="btn btn-primary" type="button" @click="submit">Inserir</button>
+        </div>
+
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    url: "http://localhost:8080/rest_persistence/api/users",
+                    username: null,
+                    password: null,
+                    file: null
+                },
+                methods: {
+                    submit() {
+                        let formData = new FormData();
+                        formData.append('image', this.file);
+                        formData.append('username', this.username);
+                        formData.append('password', this.password);
+                        axios.post(this.url,
+                            formData,
+                            {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            }
+                        ).then(function (r) {
+                            console.log(r.data);
+                            window.location.replace("index.html");
+                        }).catch(function (error) {
+                            console.log(erro);
+                        });
+                    },
+                    handleFileUpload() {
+                        this.file = this.$refs.file.files[0];                        
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>

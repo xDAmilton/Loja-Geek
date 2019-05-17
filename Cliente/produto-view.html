@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+
+<body>
+    <div class=container>
+        <div id="app">
+            <h3>Usuário</h3>
+            <div v-if="flag">
+                <p>{{usuario.id}}</p>
+                <p>{{usuario.username}}</p>
+                <p>{{usuario.password}}</p>
+                <img :src="'uploads/'+usuario.id+'?'+new Date().getTime()" width="200" height="200"><br><br>
+                <a class="btn btn-primary" :href="'user-edit.html?id='+usuario.id">Editar</a>
+                <button class="btn btn-danger" type="button" @click="deleteUser">Excluir</button>
+            </div>
+        </div>
+
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    url: "http://localhost:8080/rest_persistence/api/users",
+                    usuario: {},
+                    flag: false,
+                },
+                created() {
+                    var currentUrl = window.location.href;
+                    var id = new URL(currentUrl).searchParams.get("id");
+                    vm = this;
+                    axios.get(this.url + "/" + id).then(function (r) {
+                        vm.usuario = r.data;
+                        vm.flag = true;
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                },
+                methods: {
+                    deleteUser() {
+                        axios.delete(this.url + "/" + this.usuario.id).then(function (r) {
+                            console.log(r);
+                            window.location.replace('index.html')
+                        }).catch(function (error) {
+                            console.log(error);
+                        });
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>

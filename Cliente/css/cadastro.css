@@ -1,0 +1,40 @@
+.formulario {
+    margin-top: auto;
+}
+
+h1 {
+    text-align: center;
+
+}
+
+.container{
+    margin: auto;
+    width: 1200px;
+    margin-top: 2px;
+    padding: 2px;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+.registerbtn {
+    background-color: #3399ff;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.registerbtn:hover {
+    opacity: 1;
+}
+
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}

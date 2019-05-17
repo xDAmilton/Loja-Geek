@@ -1,0 +1,251 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>HQ's - Loja Geek</title>
+  <link rel="stylesheet" href="css/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/icon.css">
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <a href="index.html" class="logo"><img src="img/logo.png" alt=""></a>
+      <div id="divBusca">
+        <img src="img/lupa.png" id="btnBusca" alt="Buscar" width="45px" height="50px" />
+        <input type="text" id="txtBusca" placeholder="Buscar...">
+      </div>
+      <div class="header-right">
+        <a onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><img
+            src="img/conta.png"><br>Conta
+          <a href="carrinho.html"><img
+              src="img/carrinho.png"><br>Carrinho</a>
+          <a href="sac.html"><img src="img/sac.png"><br>Sac</a>
+      </div>
+    </div>
+    <div class="barra">
+      <a href="camisetas.html">Camisetas</a>
+      <a href="acessorios.html">Acessorios</a>
+      <a href="actionfigures.html">Action Figures</a>
+      <a href="livros.html">Livros</a>
+      <a href="hqs.html">HQ's</a>
+      <a href="decoracoes.html">Decorações</a>
+      <a href="kits.html">Kits</a>
+  </div>
+  </header>
+
+  <div id="id01" class="modal">
+
+    <form class="modal-content animate" action="/action_page.php">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+          title="Close Modal">&times;</span>
+        <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Email:</b></label>
+        <input type="text" placeholder="Escreva seu email" name="uname" required>
+
+        <label for="psw"><b>Senha</b></label>
+        <input type="password" placeholder="Escreva sua senha" name="psw" required>
+
+        <button type="submit">Entrar</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Lembre-se de mim
+        </label>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'"
+          class="cancelbtn">Cancelar</button>
+        <span class="psw">Ainda não possui conta? <a
+            href="cadastro.html"> Registre-se</a></span>
+      </div>
+    </form>
+  </div>
+
+
+  <hr>
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img class="d-block img-fluid" src="img/mmarav.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="img/coringa.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="img/capita-marvel.jpg" alt="Third slide" width="3000px">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="hqBatman.html"><img class="card-img-top" src="img/hq/bat.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="hqBatman.html">Batman</a>
+                </h4>
+                <h5>R$30,00</h5>
+                <p class="card-text">Batman - A Piada Mortal</p>
+                <p>qtd: <input type="number" value="1" min="1" max="10" id="qtd29">
+                  <p><button type="button" id="adicionar1" id="produto1"
+                      onclick="AddCarrinho('Batman - A Piada Mortal', document.getElementById('qtd29').value, '30.00', 29)">Adicionar
+                      ao Carrrinho</button></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="img/hq/capmarvel.jpg" alt="" ></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Capitã Marvel</a>
+                </h4>
+                <h5>R$30,00</h5>
+                <p class="card-text">Capitã Marvel - Mais Alto, Mais Longe, Mais rápido e Mais...</p>
+                <p>qtd: <input type="number" value="1" min="1" max="10" id="qtd30">
+                  <p><button type="button" id="adicionar1" id="produto1"
+                      onclick="AddCarrinho('HQ Capitã Marvel', document.getElementById('qtd30').value, '30.00', 30)">Adicionar
+                      ao Carrrinho</button></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="img/hq/dem.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Demolidor</a>
+                </h4>
+                <h5>R$30,00</h5>
+                <p class="card-text">O Homem Sem Medo</p>
+                <p>qtd: <input type="number" value="1" min="1" max="10" id="qtd31">
+                  <p><button type="button" id="adicionar1" id="produto1"
+                      onclick="AddCarrinho('Demolidor - O Homem Sem Medo', document.getElementById('qtd31').value, '30.00', 31)">Adicionar
+                      ao Carrrinho</button></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="img/hq/mm.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Mulher-Maravilha</a>
+                </h4>
+                <h5>R$30,00</h5>
+                <p class="card-text">Mulher-Maravilha Direito de Nascença</p>
+                <p>qtd: <input type="number" value="1" min="1" max="10" id="qtd32">
+                  <p><button type="button" id="adicionar1" id="produto1"
+                      onclick="AddCarrinho('Mulher-Maravilha Direito de Nascença', document.getElementById('qtd32').value, '30.00', 32)">Adicionar
+                      ao Carrrinho</button></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="img/hq/spider.jpg" alt="" height="450px"></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Homem-Aranha</a>
+                </h4>
+                <h5>R$30,00</h5>
+                <p class="card-text">Homem-Aranha - A Última Caçada de Kraven</p>
+                <p>qtd: <input type="number" value="1" min="1" max="10" id="qtd33">
+                  <p><button type="button" id="adicionar1" id="produto1"
+                      onclick="AddCarrinho('Homem-Aranha - A Última Caçada de Kraven', document.getElementById('qtd33').value, '30.00', 33)">Adicionar
+                      ao Carrrinho</button></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="img/hq/v.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">V de Vingança</a>
+                </h4>
+                <h5>R$30,00</h5>
+                <p class="card-text">V de Vingança - Alan MOORE + David Lloyd</p>
+                <p>qtd: <input type="number" value="1" min="1" max="10" id="qtd34">
+                  <p><button type="button" id="adicionar1" id="produto1"
+                      onclick="AddCarrinho('V de Vingança - Alan MOORE + David Lloyd', document.getElementById('qtd34').value, '30.00', 34)">Adicionar
+                      ao Carrrinho</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function AddCarrinho(produto, qtd, valor, posicao) {
+      localStorage.setItem("produto" + posicao, produto);
+      localStorage.setItem("qtd" + posicao, qtd);
+      valor = valor * qtd;
+      localStorage.setItem("valor" + posicao, valor);
+      alert("Produto adicionado ao carrinho!");
+    }
+  </script>
+
+  <footer class="page-footer font-small cyan darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 py-5">
+          <div class="mb-5 flex-center">
+            <div class="footer-social-icons">
+              <h5>Sigam a gente nas redes sociais!</h5>
+              <ul class="social-icons">
+                <li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+                <li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+                <li><a href="" class="social-icon"> <i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+            <div class="copyright">©2018 Copyright:
+              <a href="index.html"> lojageek.com.br</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+</body>
+
+</html>
